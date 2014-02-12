@@ -100,7 +100,7 @@
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
                         android:layout_gravity="right"
-                        android:onClick="updatePersonal"/>
+                        android:onClick="updateInfo"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -197,7 +197,7 @@
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
                         android:layout_gravity="right"
-                        android:onClick="updateEducation"/>
+                        android:onClick="updateInfo"/>
              </LinearLayout>
 
                 <LinearLayout
@@ -219,24 +219,12 @@
                         android:ems="10"
                         android:id="@+id/inputCompany" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Position:"
-                        android:id="@+id/textPos" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:id="@+id/inputPos" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Jobs:"
+                        android:text="Job:"
                         android:id="@+id/textJob" />
 
                     <EditText
@@ -267,7 +255,7 @@
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
                         android:layout_gravity="right"
-                        android:onClick="updateEmployment"/>
+                        android:onClick="updateInfo"/>
 
                 </LinearLayout>
             </FrameLayout>

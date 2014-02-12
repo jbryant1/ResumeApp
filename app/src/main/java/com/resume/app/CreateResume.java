@@ -26,10 +26,12 @@ public class CreateResume extends Activity implements AsyncResponse{
     ProgressDialog pDialog;
     private String id ="";
 
-    private static String url_insert_name = "http://192.168.1.3/resume_app/insert_name.php";
-    private static String url_insert_personal = "http://192.168.1.3/resume_app/insert_personal.php";
-    private static String url_insert_employment = "http://192.168.1.3/resume_app/insert_employment.php";
-    private static String url_insert_education = "http://192.168.1.3/resume_app/insert_education.php";
+    private static final String localhost = "10.171.91.48";
+    private static String url_insert_name = "http://"+localhost+"/resume_app/insert_name.php";
+    private static String url_insert_personal = "http://"+localhost+"/resume_app/insert_personal.php";
+    private static String url_insert_employment = "http://"+localhost+"/resume_app/insert_employment.php";
+    private static String url_insert_education = "http://"+localhost+"/resume_app/insert_education.php";
+    private static String url_update_info = "http://"+localhost+"/resume_app/update_existing_info.php";
 
 
     RequestService service = new RequestService();
@@ -76,9 +78,7 @@ public class CreateResume extends Activity implements AsyncResponse{
 
     public void onEmploymentCreateClick(View v){
         new createEmploymentInfo().execute();
-        Intent i = getParentActivityIntent();
         finish();
-        startActivity(i);
     }
 
     public void processFinish(String output){
@@ -86,7 +86,7 @@ public class CreateResume extends Activity implements AsyncResponse{
         Log.d("Inside Process","THIS IS ID " + id);
     }
 
-    public String checkNull(EditText text){
+    private String checkNull(EditText text){
         String input;
         if(text.getText() == null){
             input = "";
@@ -96,6 +96,25 @@ public class CreateResume extends Activity implements AsyncResponse{
         }
 
         return input;
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(CreateResume.this)
+                .setTitle("Confirm")
+                .setMessage("You have not finished. You will be able to edit your progress")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
     }
 
     class createResumeName extends AsyncTask<String, String, String>{

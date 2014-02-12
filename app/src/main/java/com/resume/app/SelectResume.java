@@ -30,8 +30,8 @@ public class SelectResume extends ListActivity{
     private RequestService service = new RequestService();
 
     ArrayList<HashMap<String,String>> resumeList;
-
-    private static String url_all_resumes = "http://192.168.1.3/resume_app/grab_existing_resume.php";
+    private static String localhost = "10.171.91.48";
+    private static String url_all_resumes = "http://"+localhost+"/resume_app/grab_existing_resume.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_RESUME = "resume";
