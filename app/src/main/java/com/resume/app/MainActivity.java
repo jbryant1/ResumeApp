@@ -36,6 +36,11 @@ public class MainActivity extends ActionBarActivity {
         this.startActivity(i);
     }
 
+    public void generatePdf(View v){
+        Intent i = new Intent(this, GeneratePdf.class);
+        this.startActivity(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

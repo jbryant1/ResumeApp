@@ -31,7 +31,6 @@ public class CreateResume extends Activity implements AsyncResponse{
     private static String url_insert_personal = "http://"+localhost+"/resume_app/insert_personal.php";
     private static String url_insert_employment = "http://"+localhost+"/resume_app/insert_employment.php";
     private static String url_insert_education = "http://"+localhost+"/resume_app/insert_education.php";
-    private static String url_update_info = "http://"+localhost+"/resume_app/update_existing_info.php";
 
 
     RequestService service = new RequestService();
