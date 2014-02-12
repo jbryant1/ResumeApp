@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TabHost;
 
@@ -57,7 +59,12 @@ public class EditResume extends Activity{
     private static final String TAG_POSITION = "position";
     private static final String TAG_DESCRIPTION = "description";
 
-    private static final String url_resume_details = "http://10.171.91.51/resume_app/existing_info.php";
+    private String button;
+
+    private static final String url_resume_details = "http://192.168.1.3/resume_app/existing_info.php";
+    private static final String url_update_personal = "http://192.168.1.3/resume_app/update_personal.php";
+    private static final String url_update_education = "http://192.168.1.3/resume_app/update_education.php";
+    private static final String url_update_employment = "http://192.168.1.3/resume_app/update_employment.php";
 
     protected void onCreate(Bundle savedBundle){
         super.onCreate(savedBundle);
@@ -85,6 +92,14 @@ public class EditResume extends Activity{
         id = i.getStringExtra(TAG_ID);
         new ResumeDetails().execute();
 
+    }
+
+    private String checkString(String tag){
+        if(tag == null){
+            tag = "";
+        }
+
+        return tag;
     }
 
     private void displayText(JSONObject resume){
@@ -122,7 +137,24 @@ public class EditResume extends Activity{
         }
     }
 
+    public void updatePersonal(View v){
+        button = "personal";
+        new UpdatePersonal().execute();
+    }
+
+    public void updateEducation(View v){
+        button = "education";
+        new UpdatePersonal().execute();
+    }
+
+    public void updateEmployment(View v){
+        button = "employment";
+        new UpdatePersonal().execute();
+    }
+
     class ResumeDetails extends AsyncTask<String,String,String>{
+
+        JSONObject resume;
 
         protected void onPreExecute(){
             super.onPreExecute();
@@ -138,25 +170,17 @@ public class EditResume extends Activity{
             try{
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("Id", id));
-
+                Log.d("ID In Edit", "Id " + id);
                 JSONObject json = service.makeHttpRequest(url_resume_details, "GET", params);
                 success = json.getInt(TAG_SUCCESS);
 
                 if(success == 1){
                     JSONArray prodObj = json.getJSONArray(TAG_RESUME);
-                    final JSONObject  resume = prodObj.getJSONObject(0);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            displayText(resume);
+                    resume = prodObj.getJSONObject(0);
 
-                        }
-                    });
                 }
                 else{
-                    pDialog = new ProgressDialog(EditResume.this);
-                    pDialog.setMessage("There was an error");
-                    pDialog.show();
+                    //Error
                 }
             }
             catch(Exception e){
@@ -167,6 +191,7 @@ public class EditResume extends Activity{
         }
 
         protected void onPostExecute(String file_url){
+            displayText(resume);
             pDialog.dismiss();
         }
     }

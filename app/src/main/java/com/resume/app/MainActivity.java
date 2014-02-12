@@ -31,6 +31,11 @@ public class MainActivity extends ActionBarActivity {
         this.startActivity(i);
     }
 
+    public void createaResume(View v){
+        Intent i = new Intent(this, CreateResume.class);
+        this.startActivity(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

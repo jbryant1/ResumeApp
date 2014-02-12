@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Create a New Resume"/>
+        android:text="Create a New Resume"
+        android:onClick="createaResume"/>
 
     <Button
         android:layout_width="match_parent"
@@ -42,5 +43,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Select Existing Resume"/>
+        android:text="Generate PDF Resume"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Select Existing PDF Resume"/>
 </LinearLayout>

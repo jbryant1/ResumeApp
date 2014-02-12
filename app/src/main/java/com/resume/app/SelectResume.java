@@ -31,7 +31,7 @@ public class SelectResume extends ListActivity{
 
     ArrayList<HashMap<String,String>> resumeList;
 
-    private static String url_all_resumes = "http://10.171.91.51/resume_app/grab_existing_resume.php";
+    private static String url_all_resumes = "http://192.168.1.3/resume_app/grab_existing_resume.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_RESUME = "resume";

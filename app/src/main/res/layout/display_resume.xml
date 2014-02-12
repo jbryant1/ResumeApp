@@ -99,7 +99,8 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
-                        android:layout_gravity="right"/>
+                        android:layout_gravity="right"
+                        android:onClick="updatePersonal"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -195,7 +196,8 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
-                        android:layout_gravity="right"/>
+                        android:layout_gravity="right"
+                        android:onClick="updateEducation"/>
              </LinearLayout>
 
                 <LinearLayout
@@ -203,19 +205,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Jobs:"
-                        android:id="@+id/textJob" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:id="@+id/inputJob" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -247,6 +236,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Jobs:"
+                        android:id="@+id/textJob" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/inputJob" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Description:"
                         android:id="@+id/textDes" />
 
@@ -264,7 +266,8 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:padding="15dp"
-                        android:layout_gravity="right"/>
+                        android:layout_gravity="right"
+                        android:onClick="updateEmployment"/>
 
                 </LinearLayout>
             </FrameLayout>

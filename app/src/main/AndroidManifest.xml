@@ -25,6 +25,11 @@
             android:label="Select Resume">
 
         </activity>
+        <activity android:name=".CreateResume"
+            android:label="Select Resume">
+
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
